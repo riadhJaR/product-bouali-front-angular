@@ -4,6 +4,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { ActivateAccountComponent } from './pages/activate-account/activate-account.component';
 import { BooksComponent } from './modules/books/books.component';
 import { ListComponent} from './modules/books/list/list.component';
+import { authGuard } from './services/guard/auth.guard';
 
 export const routes: Routes = [
     {
@@ -23,7 +24,8 @@ export const routes: Routes = [
     },
     { 
         path: 'book', 
-        loadChildren: () => import('./module/book/book.module').then(m => m.BookModule) 
+        loadChildren: () => import('./module/book/book.module').then(m => m.BookModule),
+        canActivate: [authGuard]
       },
     {
         path: 'books',

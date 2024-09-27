@@ -26,7 +26,8 @@ ngOnInit(): void {
 
   
 logout() {
-throw new Error('Method not implemented.');
+  localStorage.removeItem('token');
+  window.location.reload();
 }
 
 }
